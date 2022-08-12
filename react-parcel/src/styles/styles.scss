@@ -1,0 +1,18 @@
+// $theme-colors: (
+//   "primary": #000000,
+//   "secondary": #000000,
+//   "success": #000000,
+//   "info": #000000,
+//   "warning": #000000,
+//   "danger": #000000,
+//   "light": #000000,
+//   "dark": #000000,
+//   "font-family-sans-serif": -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+//   "font-family-monospace": SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+// );
+
+@import "~bootstrap/scss/bootstrap";
+
+main {
+    margin-top: 56px;
+}
