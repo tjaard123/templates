@@ -39,7 +39,7 @@ root.render(
           </div>
         </nav>
 
-        <main>
+        <main className="p-5">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/users" element={<Users />}></Route>

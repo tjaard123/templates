@@ -7,6 +7,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@reduxjs/toolkit": "^1.8.4",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "iconoir-react": "^5.1.4",
     "react": "^18.2.0",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
+    "buffer": "^6.0.3",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   }
