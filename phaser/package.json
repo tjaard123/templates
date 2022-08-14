@@ -1,0 +1,22 @@
+{
+  "source": "public/index.html",
+  "scripts": {
+    "start": "parcel",
+    "copy-assets": "cp src/assets -r dist"
+  },
+  "staticFiles": {
+    "staticPath": "assets",
+    "watcherGlob": "**"
+  },
+  "assetsPath": "assets",
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "parcel-plugin-asset-copier": "^1.1.1",
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.7.0",
+    "parcel": "^2.7.0",
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  }
+}
