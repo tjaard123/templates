@@ -5,6 +5,7 @@ Opinionated start templates with basics included like http client, state contain
 - [React](./react) - Single page web app
 - [Phaser](./phaser) - Web gaming engine
 - [Express](./express) - Nodejs http server
+- [Websocket](./websocket) - Websocket server
 
 ## Recommended hosting
 
@@ -27,5 +28,5 @@ AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/
 
 ## TODO:
 - Websocket server & client
-- Clean docker or repo app runner
-- Phaser arcade example & docker
+- Phaser arcade example
+- Dockerize phaser

@@ -5,6 +5,7 @@ import store from "./store";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./features/home/Home";
 import { Users } from "./features/users/Users";
+import { Messages } from "./features/websocket/Messages"
 import { UserCircleAlt, UserSquareAlt } from "iconoir-react";
 import * as bootstrap from "bootstrap";
 
@@ -48,6 +49,8 @@ root.render(
             <Route path="/users" element={<Users />}></Route>
           </Routes>
         </main>
+
+        <Messages />
       </div>
     </BrowserRouter>
   </Provider>
