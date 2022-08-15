@@ -1,4 +1,4 @@
-# Example usage: AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/Dockerfile
+# Example usage: AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/
 
 if [ -z "$1" ]
   then
@@ -8,12 +8,12 @@ if [ -z "$1" ]
     REPOSITORY=$1
 fi
 
-if [ -z "$1" ]
+if [ -z "$2" ]
   then
-    echo "Type dockerfile location you'd like to build and push, e.g. ../express/Dockerfile"
+    echo "Type dockerfile location you'd like to build and push, e.g. ../express/"
     read DOCKERFILE
   else
-    DOCKERFILE=$1
+    DOCKERFILE=$2
 fi
 
 REGION=eu-west-1
@@ -32,5 +32,5 @@ aws ecr get-login-password \
     --region eu-west-1 | docker login --username AWS --password-stdin $PUSH_URL
 
 # Build & push
-docker build -t $PUSH_URL/$REPOSITORY:latest DOCKERFILE
+docker build -t $PUSH_URL/$REPOSITORY:latest $DOCKERFILE
 docker push $PUSH_URL/$REPOSITORY:latest

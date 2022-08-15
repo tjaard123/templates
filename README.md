@@ -14,7 +14,7 @@ Host the container with AWS app runner with a few clicks:
 
 ## Deployment
 
-I've created some helper scripts to deploy your docker image to ECR
+I've created some helper scripts to deploy your docker image to ECR.
 
 **Inside scripts directory:**
 ```sh
@@ -22,7 +22,7 @@ I've created some helper scripts to deploy your docker image to ECR
 AWS_PROFILE=dev ./create-ecr.sh tjaard/awesome-app
 
 # Build & push your docker image
-AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/Dockerfile
+AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/
 ```
 
 ## TODO:
