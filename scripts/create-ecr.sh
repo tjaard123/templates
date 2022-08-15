@@ -1,4 +1,13 @@
-REPOSITORY=tjaard/react-template
+# Example usage: AWS_PROFILE=dev ./create-ecr.sh tjaard/awesome-app
+
+if [ -z "$1" ]
+  then
+    echo "Type the AWS ECR (Docker) repository, e.g. tjaard/awesome-app"
+    read REPOSITORY
+  else
+    REPOSITORY=$1
+fi
+
 REGION=eu-west-1
 
 # Print the AWS account

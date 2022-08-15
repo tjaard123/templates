@@ -35,6 +35,9 @@ root.render(
               <li className="nav-item">
                 <UserCircleAlt color="white" />
               </li>
+              <li>
+                v2.0
+              </li>
             </ul>
           </div>
         </nav>
