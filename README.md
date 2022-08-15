@@ -26,7 +26,6 @@ AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/
 ```
 
 ## TODO:
-- CORS
 - Websocket server & client
-- Clean docker
-- Phaser arcade example
+- Clean docker or repo app runner
+- Phaser arcade example & docker
