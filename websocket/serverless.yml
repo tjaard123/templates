@@ -1,7 +1,7 @@
 service: serverless-ws-test
 
 plugins:
-  - serverless-plugin-common-excludes
+  - serverless-plugin-common-excludes # Makes your deploy package much smaller, went from 17MB to 4MB
 
 provider:
   name: aws

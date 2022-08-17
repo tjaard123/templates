@@ -1,14 +1,9 @@
 import AWS from "aws-sdk";
 
-const init = () => {
-  return {
-    dynamoDb: new AWS.DynamoDB.DocumentClient(),
-    connectionsTable: process.env.CONNECTIONS_TABLE,
-  };
-};
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
+const connectionsTable = process.env.CONNECTIONS_TABLE;
 
 export const saveConnection = async (connectionId) => {
-  const { dynamoDb, connectionsTable } = init();
   await dynamoDb
     .put({
       TableName: connectionsTable,
@@ -22,7 +17,6 @@ export const saveConnection = async (connectionId) => {
 };
 
 export const deleteConnection = async (connectionId) => {
-  const { dynamoDb, connectionsTable } = init();
   await dynamoDb
     .delete({
       TableName: connectionsTable,
@@ -32,7 +26,6 @@ export const deleteConnection = async (connectionId) => {
 };
 
 export const getAllConnections = async (ExclusiveStartKey) => {
-  const { dynamoDb, connectionsTable } = init();
   const { Items, LastEvaluatedKey } = await dynamoDb
     .scan({
       TableName: connectionsTable,

@@ -7,7 +7,7 @@ export const handler = async (event, context) => {
     body,
     requestContext: { connectionId, routeKey },
   } = event;
-  console.log(`Client ${connectionId} sent default message`);
+  console.log(`Received default message from client ${connectionId}`);
 
   try {
     await sendMessage(connectionId, `Received: { route: ${routeKey}, connectionId: ${connectionId}, body: ${body} }`);
@@ -15,6 +15,5 @@ export const handler = async (event, context) => {
     console.log(err);
   }
 
-  console.log("Done sending default message");
   return { statusCode: 200 };
 };  
