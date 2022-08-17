@@ -25,8 +25,3 @@ AWS_PROFILE=dev ./create-ecr.sh tjaard/awesome-app
 # Build & push your docker image
 AWS_PROFILE=dev ./build-push.sh tjaard/awesome-app ../express/
 ```
-
-## TODO:
-- Websocket server & client
-- Phaser arcade example
-- Dockerize phaser
