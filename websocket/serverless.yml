@@ -1,0 +1,76 @@
+service: serverless-ws-test
+
+plugins:
+  - serverless-plugin-common-excludes
+
+provider:
+  name: aws
+  profile: rd
+  region: eu-west-1
+  runtime: nodejs16.x
+  stage: dev
+  websocketsApiName: custom-websockets-api-name
+  websocketsApiRouteSelectionExpression: $request.body.action # Custom routes are selected by the value of the action property in the body
+  websocketsDescription: Custom Serverless Websockets
+
+  environment:
+    APIG_ENDPOINT: # You need the API gateway endpoint to send messages to clients
+      Fn::Join:
+        - ''
+        - - Ref: WebsocketsApi
+          - .execute-api.
+          - Ref: AWS::Region
+          - .amazonaws.com/
+          - ${self:provider.stage}
+    CONNECTIONS_TABLE:
+      Ref: ConnectionsTable
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DeleteItem
+        - dynamodb:GetItem
+        - dynamodb:Scan
+        - dynamodb:PutItem
+      Resource:
+        Fn::GetAtt:
+          - ConnectionsTable
+          - Arn
+
+functions:
+  connection:
+    handler: src/handlers/connection.handler
+    events:
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $disconnect
+  default:
+    handler: src/handlers/default.handler
+    events:
+      - websocket: $default # Messages go here if no route matches
+  foo:
+    handler: src/handlers/foo.handler
+    events:
+      - websocket:
+          route: foo # Custom routes, e.g. will trigger if $request.body.action === "foo"
+  broadcast:
+    handler: src/handlers/broadcast.handler # Just a nice utility function to broadcast to all clients
+
+resources:
+  Resources:
+    ConnectionsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: connectionId
+            AttributeType: S
+        BillingMode: PAY_PER_REQUEST
+        KeySchema:
+          - AttributeName: connectionId
+            KeyType: HASH
+        SSESpecification:
+          SSEEnabled: true
+        TimeToLiveSpecification:
+          AttributeName: ttl
+          Enabled: true

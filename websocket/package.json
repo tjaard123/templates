@@ -1,7 +1,17 @@
 {
-  "main": "index.js",
+  "name": "tjaard-serverless-websocket",
+  "version": "0.0.1",
+  "description": "WebSocket example using the Serverless Framework",
   "type": "module",
+  "scripts": {
+    "broadcast": "sls invoke --function broadcast --data hello",
+    "sls": "sls"
+  },
+  "devDependencies": {
+    "serverless": "^3.22.0"
+  },
   "dependencies": {
-    "ws": "^8.8.1"
+    "aws-sdk": "^2.1196.0",
+    "serverless-plugin-common-excludes": "^4.0.0"
   }
 }

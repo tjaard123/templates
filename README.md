@@ -5,7 +5,7 @@ Opinionated start templates with basics included like http client, state contain
 - [React](./react) - Single page web app
 - [Phaser](./phaser) - Web gaming engine
 - [Express](./express) - Nodejs http server
-- [Websocket](./websocket) - Websocket server
+- [Websocket](./websocket) - Serverless WebSocket server
 
 ## Recommended hosting
 
